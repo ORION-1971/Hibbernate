@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class Hiber_ {
+public class Hiber_Read {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
@@ -20,8 +20,8 @@ public class Hiber_ {
         try{
             tx.begin();
 
-            Student student = new Student("Zaur", "Tregulov", 5.5);
-            session.persist(student);
+            Student student = session.get(Student.class, 1);
+            System.out.println(student);
 
             tx.commit();
         }
