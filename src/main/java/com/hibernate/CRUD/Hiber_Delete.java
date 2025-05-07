@@ -1,12 +1,12 @@
-package com.hibernate;
+package com.hibernate.CRUD;
 
-import com.hibernate.entity.Student;
+import com.hibernate.CRUD.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class Hiber_Read {
+public class Hiber_Delete {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
@@ -21,7 +21,7 @@ public class Hiber_Read {
             tx.begin();
 
             Student student = session.get(Student.class, 1);
-            System.out.println(student);
+            session.remove(student);
 
             tx.commit();
         }

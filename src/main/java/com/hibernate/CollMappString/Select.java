@@ -1,12 +1,12 @@
-package com.hibernate;
+package com.hibernate.CollMappString;
 
-import com.hibernate.entity.Student;
+import com.hibernate.CollMappString.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class Hiber_Create {
+public class Select {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
@@ -20,8 +20,8 @@ public class Hiber_Create {
         try{
             tx.begin();
 
-            Student student = new Student("Gunay", "Hashimove", 7.5);
-            session.persist(student);
+            Student student = session.get(Student.class, 3);
+            System.out.println(student);
 
             tx.commit();
         }
